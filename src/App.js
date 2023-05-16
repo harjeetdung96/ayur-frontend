@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Contact from './Contact';
+import About from './About';
+import Nav from './Nav';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Nav />
+      <Routes>
+        <Route exact path='/' Component={About} />
+        <Route path='/contact' Component={Contact} />
+      </Routes>
+    </>
+  )
 }
-
 export default App;
+
+// import React, { useEffect, useState } from "react"
+// import axios from "axios";
+
+// const App = () => {
+//   const [users, setUsers] = useState([])
+
+//   const fetchData = () => {
+//     return axios.get("http://localhost:2000/get-customer")
+//       .then((response) => setUsers(response.data));
+//   }
+
+//   useEffect(() => {
+//     fetchData();
+//   }, [])
+
+//   return (
+
+//     <div>
+//       {users.length > 0 && (
+//         <ul>
+//           {users.map(user => (
+//             <li key={user._id}>{user.name} : {user.email}</li>
+
+//           ))}
+//         </ul>
+//       )}
+//     </div>
+
+//   );
+
+// }
+
+// export default App;
