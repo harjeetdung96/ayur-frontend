@@ -14,16 +14,31 @@ const Contact = () => {
         fetchApi()
     }, [])
 
+    const deleteData = (id) => {
+        axios.delete('http://localhost:2000/delete-customer/' + id)
+        fetchApi()
+    }
 
     return (<div>
         {
             user.length > 0 && (
-                <ul>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
                     {user.map(user => (
-                        <li key={user._id}>{user.name} : {user.email}</li>
 
+                        <tr key={user._id}>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.phone}</td>
+                            <td><button>Update</button><button onClick={() => deleteData(user._id)}>Delete</button></td>
+                        </tr>
                     ))}
-                </ul>
+                </table>
             )
         }
 

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Contact from './Contact';
 import About from './About';
 import Nav from './Nav';
+import Home from './Home';
 
 const App = () => {
 
@@ -10,8 +11,9 @@ const App = () => {
     <>
       <Nav />
       <Routes>
-        <Route exact path='/' Component={About} />
+        <Route exact path='/' Component={Home} />
         <Route path='/contact' Component={Contact} />
+        <Route path='/about' Component={About} />
       </Routes>
     </>
   )
