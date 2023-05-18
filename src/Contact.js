@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+import ContactUpdate from './ContactUpdate';
+import ContactCreate from './ContactCreate';
 
 const Contact = () => {
 
@@ -20,6 +23,13 @@ const Contact = () => {
     }
 
     return (<div>
+
+        {
+            <NavLink to='/create'>
+                <button>Create Contact</button>
+            </NavLink>
+
+        }
         {
             user.length > 0 && (
                 <table>
@@ -35,16 +45,16 @@ const Contact = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
-                            <td><button>Update</button><button onClick={() => deleteData(user._id)}>Delete</button></td>
+                            <td><NavLink to='/update' state={{ id: user._id }}>
+                                <button>Update</button>
+                            </NavLink>
+                                <button onClick={() => deleteData(user._id)}>Delete</button></td>
                         </tr>
                     ))}
                 </table>
             )
         }
-
     </div>)
-
-
 }
 
 export default Contact;

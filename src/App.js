@@ -4,6 +4,8 @@ import Contact from './Contact';
 import About from './About';
 import Nav from './Nav';
 import Home from './Home';
+import ContactUpdate from './ContactUpdate';
+import ContactCreate from './ContactCreate';
 
 const App = () => {
 
@@ -14,6 +16,8 @@ const App = () => {
         <Route exact path='/' Component={Home} />
         <Route path='/contact' Component={Contact} />
         <Route path='/about' Component={About} />
+        <Route path='/update' Component={ContactUpdate} />
+        <Route path='/create' Component={ContactCreate} />
       </Routes>
     </>
   )
