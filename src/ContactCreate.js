@@ -21,7 +21,6 @@ const Create = () => {
         navigate(-1);
     }
 
-
     return (
         <div>
             <form className="create-form" onSubmit={(e) => { createData(e) }}>

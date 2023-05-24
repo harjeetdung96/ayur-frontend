@@ -5,15 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Update = () => {
-
-
     const navigate = useNavigate();
 
     const data = useLocation();
     const { state } = data;
 
     const [Name, setName] = useState('');
-    const [Email, settEmail] = useState('');
+    const [Email, setEmail] = useState('');
     const [Phone, setPhone] = useState('');
 
 
@@ -33,7 +31,9 @@ const Update = () => {
         return axios.get('http://localhost:2000/get-customer/' + state.id)
             .then((response) => {
                 setFetchRecord(response.data)
-                //    console.log(response.data)
+                setName(response.data.name)
+                setEmail(response.data.email)
+                setPhone(response.data.phone)
             });
 
     }
@@ -52,7 +52,7 @@ const Update = () => {
                 </div>
                 <div>
                     <label>Email</label>
-                    <input placeholder='Email' defaultValue={FetchRecord.email} onChange={(e) => settEmail(e.target.value)} />
+                    <input placeholder='Email' defaultValue={FetchRecord.email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
                     <label>Phone</label>

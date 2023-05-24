@@ -6,6 +6,8 @@ import Nav from './Nav';
 import Home from './Home';
 import ContactUpdate from './ContactUpdate';
 import ContactCreate from './ContactCreate';
+import Register from './Register';
+
 
 const App = () => {
 
@@ -18,42 +20,9 @@ const App = () => {
         <Route path='/about' Component={About} />
         <Route path='/update' Component={ContactUpdate} />
         <Route path='/create' Component={ContactCreate} />
+        <Route path='/register' Component={Register} />
       </Routes>
     </>
   )
 }
 export default App;
-
-// import React, { useEffect, useState } from "react"
-// import axios from "axios";
-
-// const App = () => {
-//   const [users, setUsers] = useState([])
-
-//   const fetchData = () => {
-//     return axios.get("http://localhost:2000/get-customer")
-//       .then((response) => setUsers(response.data));
-//   }
-
-//   useEffect(() => {
-//     fetchData();
-//   }, [])
-
-//   return (
-
-//     <div>
-//       {users.length > 0 && (
-//         <ul>
-//           {users.map(user => (
-//             <li key={user._id}>{user.name} : {user.email}</li>
-
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-
-//   );
-
-// }
-
-// export default App;
