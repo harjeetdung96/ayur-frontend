@@ -1,23 +1,44 @@
 import React from 'react'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 const Register = () => {
 
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        password: ''
+
+    })
+
+    const registerData = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:2000/register', {
+            ...data
+        })
+
+    }
+
+    const changeHandler = e => {
+        setData({ ...data, [e.target.name]: e.target.value })
+    }
+
     return (<>
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4"></input>
+        <form className="row g-3" onSubmit={(e) => { registerData(e) }}>
+            <div className="col-md-8">
+                <label className="form-label" htmlFor="autoSizingInput">Name</label>
+                <input type="text" className="form-control" name='name' id="autoSizingInput" placeholder="Name" onChange={changeHandler}></input>
             </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4"></input>
+            <div className="col-md-8">
+                <label htmlFor="inputEmail4" className="form-label">Email</label>
+                <input type="email" className="form-control" name='email' id="inputEmail4" placeholder="Email" onChange={changeHandler}></input>
             </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="inputPassword4"></input>
+            <div className="col-md-8">
+                <label htmlFor="inputPassword4" className="form-label">Password</label>
+                <input type="password" className="form-control" name='password' id="inputPassword4" placeholder="Password" onChange={changeHandler}></input>
             </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Register</button>
+            <div className="col-12">
+                <button type="submit" className="btn btn-primary" onChange={changeHandler}>Register</button>
             </div>
         </form>
     </>

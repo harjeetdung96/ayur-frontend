@@ -4,12 +4,6 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => {
 
     return (
-        // <>
-        //     <NavLink to='/' >Home</NavLink>
-        //     <NavLink to='/contact' >Conatct</NavLink>
-        //     <NavLink to='/about' >About</NavLink>
-        // </>
-
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
@@ -31,8 +25,9 @@ const Nav = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/contact' >Contact</NavLink>
                             </li>
+
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='/register' >Register</NavLink>
+                                <NavLink className="nav-link" to='/logout' >Logout</NavLink>
                             </li>
                         </ul>
                     </div>
